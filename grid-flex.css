@@ -35,27 +35,23 @@ html, body {
 
 .page-wrapper {
     display: grid;
-    max-width: 1140px;
     margin: auto;
+    max-width: 1160px;
     margin-top: 30px;
     margin-bottom: 30px;
-    padding: 30px;
-    border: solid 1px black;
-    border-top: 0;
-    border-bottom: 0;
 }
 
 .wrapper {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: [col1-start] 100px [col2-start] 100px [col3-start] 100px [col3-end];
+    grid-template-columns: [col1-start] 0% [col2-start] calc(65.35% - 10px) [col3-start] calc(34.65% - 10px) [col3-end];
     grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
 }
 
 .box {
+    position: relative;
     background-color: black;
-    padding: 20px;
-    color: white;
+    padding-bottom: 56.4%;
 }
 
 .a {
@@ -71,4 +67,25 @@ html, body {
 .c {
     grid-column: col3-start;
     grid-row: row2-start;
+}
+
+.image {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@media all and (max-width: 800px) {
+    .a {
+        grid-column: col1-start / col4-start;
+    }
+
+    .b {
+        display: none;
+    }
+
+    .c {
+        display: none;
+    }
 }
